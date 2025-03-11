@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('datb.php');
+//require_once('datb.php');
 ?>
 
 
@@ -117,7 +117,7 @@ require_once('datb.php');
             background-color: #0056b3;
         }
 
-        /* Популярные рестораны */
+        
         .popular-restaurants {
             margin-bottom: 30px;
         }
@@ -162,7 +162,7 @@ require_once('datb.php');
             background-color: #218838;
         }
 
-        /* Категории */
+        
         .categories {
             margin-bottom: 30px;
         }
@@ -194,7 +194,7 @@ require_once('datb.php');
             background-color:rgb(172, 138, 138);
         }
 
-        /* Footer */
+       
         footer {
             background-color: #f0f0f0;
             padding: 20px 0;
@@ -208,6 +208,49 @@ require_once('datb.php');
         }
         .header-nav a:hover {
             background-color:rgb(89, 199, 184);
+        }
+        .restaurant-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.6s ease, transform 0.6s ease; 
+        }
+
+        .restaurant-card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .restaurant-card p {
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .restaurant-card img {
+            width: 15%;
+            float: right;
+            margin-top: -8%;
+            border-radius: 4px; 
+        }
+
+        .restaurant-card a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        
+        .restaurant-card.show {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -274,6 +317,21 @@ require_once('datb.php');
             © 2025 furtus Доставка Еды. Все права защищены.
         </div>
     </footer>
+
+    <script>
+        function animateCards() {
+            const cards = document.querySelectorAll('.restaurant-card');
+
+            cards.forEach((card, index) => {
+
+                setTimeout(() => {
+                    card.classList.add('show');
+                }, index * 200); 
+            });
+        }
+
+        window.onload = animateCards;
+    </script>
 
 </body>
 </html>
