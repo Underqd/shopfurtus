@@ -21,7 +21,7 @@
             text-align: center;
         }
 
-        .container {
+        .restaurant-card {
             max-width: 960px;
             margin: 20px auto;
             padding: 20px;
@@ -69,8 +69,51 @@
             font-size: 0.8em;
         }
         .icon-back {
-            width: 95px; /* Или любой нужный размер */
+            width: 95px; 
             height: auto;
+        }
+        .restaurant-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.6s ease, transform 0.6s ease; 
+        }
+
+        .restaurant-card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .restaurant-card p {
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .restaurant-card img {
+            width: 15%;
+            float: right;
+            margin-top: -8%;
+            border-radius: 4px; 
+        }
+
+        .restaurant-card a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+
+        .restaurant-card.show {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -84,7 +127,7 @@
         </a>
     </header>
 
-    <div class="container">
+    <div class="restaurant-card">
         <h2>О нас</h2>
         <p>Добро пожаловать в "Furtus" - службу доставки еды, созданную с любовью к кулинарии и заботой о вашем комфорте. Мы стремимся принести вам самые вкусные и свежие блюда прямо к вашему порогу.</p>
 
@@ -133,6 +176,21 @@
             Адрес:  [Адрес]
         </p>
     </div>
+
+    <script>
+        function animateCards() {
+            const cards = document.querySelectorAll('.restaurant-card');
+
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('show');
+                }, index * 200); 
+            });
+        }
+
+
+        window.onload = animateCards;
+    </script>
 
 
 </body>
